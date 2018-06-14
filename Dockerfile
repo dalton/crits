@@ -25,7 +25,7 @@ RUN sudo -E apt-get install -y --fix-missing build-essential curl git libevent-d
 
 # Clone the repo
 ARG REPO_DEPTH=unknown
-RUN git clone --depth ${REPO_DEPTH} https://github.com/dalton/crits.git
+RUN git clone --depth 1 https://github.com/dalton/crits.git
 
 WORKDIR crits
 # Install the dependencies

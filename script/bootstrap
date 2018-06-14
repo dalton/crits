@@ -272,7 +272,7 @@ ubuntu_install()
     sudo apt-get update
 
     #Step 4: Install the last stable MongoDB version and all the necessary packages on our system
-    sudo -E apt-get install mongodb-org
+    sudo -E apt-get install -y mongodb-org
     sudo ldconfig
 }
 
