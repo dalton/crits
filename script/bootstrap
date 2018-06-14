@@ -205,21 +205,21 @@ server_setup()
 
     if [ $? -eq 0 ]
     then
-        while true; do
-            printf "${HEAD}Please choose:${END}\n"
-            printf "[${INFO}A${END}]dd admin user\n"
-            printf "[${INFO}R${END}]eset password\n"
-            printf "[${INFO}S${END}]tart server\n"
-            printf "[${INFO}Q${END}]uit\n"
-            read -p "Add/Reset/Start/Quit? [arsq] " arc
-            #case $arc in
-            ##    [Aa]* ) add_admin;;
-            #    [Rr]* ) reset_pass;;
-            #    [Ss]* ) start_server;;
-            #    [Qq]* ) break;;
-            #    * ) echo "${FAIL}Please answer [A]dd / [R]eset / [S]tart / [Q]uit.${END}\n";;
-            #esac
-        done
+     #   while true; do
+     #       printf "${HEAD}Please choose:${END}\n"
+     #       printf "[${INFO}A${END}]dd admin user\n"
+     #       printf "[${INFO}R${END}]eset password\n"
+     #       printf "[${INFO}S${END}]tart server\n"
+     #       printf "[${INFO}Q${END}]uit\n"
+     #       read -p "Add/Reset/Start/Quit? [arsq] " arc
+     #       #case $arc in
+     #       ##    [Aa]* ) add_admin;;
+     #       #    [Rr]* ) reset_pass;;
+     #       #    [Ss]* ) start_server;;
+     #       #    [Qq]* ) break;;
+     #       #    * ) echo "${FAIL}Please answer [A]dd / [R]eset / [S]tart / [Q]uit.${END}\n";;
+     #       #esac
+     #   done
     fi
 }
 
