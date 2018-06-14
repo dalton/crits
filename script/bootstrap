@@ -14,7 +14,7 @@ HEAD=$(tput setaf 5) #magenta
 INFO=$(tput setaf 6) #cyan
 END=$(tput sgr0)   #ends color
 #============================================================
-PIP='pip'
+PIP='pip2.7'
 PYTH='python2'
 
 verify()
@@ -105,7 +105,6 @@ depend_crits()
         sudo -E env LDFLAGS=-L/usr/local/lib \
         CFLAGS=-I/usr/local/include \
         SWIG_FEATURES="-cpperraswarn -includeall -I/usr/local/include" \
-        ${PIP} install M2Crypto
         sudo -E ${PIP} install -U -r requirements.txt
     fi
     if [ $? -ne 0 ]
@@ -273,12 +272,7 @@ ubuntu_install()
     sudo apt-get update
 
     #Step 4: Install the last stable MongoDB version and all the necessary packages on our system
-    sudo apt-get install mongodb-org
-    sudo -E add-apt-repository universe
-    sudo -E apt-get update
-    sudo -E apt-get install -y --fix-missing build-essential curl git libevent-dev libz-dev libjpeg-dev libfuzzy-dev libldap2-dev libpcap-dev libpcre3-dev libsasl2-dev libxml2-dev libxslt1-dev libyaml-dev mongodb-org numactl p7zip-full python-dev python-pip ssdeep upx zip libssl-dev
-    sudo apt-get install swig
-    sudo pip install m2crypto==0.24.0
+    sudo -E apt-get install mongodb-org
     sudo ldconfig
 }
 
