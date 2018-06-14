@@ -277,6 +277,8 @@ ubuntu_install()
     sudo -E add-apt-repository universe
     sudo -E apt-get update
     sudo -E apt-get install -y --fix-missing build-essential curl git libevent-dev libz-dev libjpeg-dev libfuzzy-dev libldap2-dev libpcap-dev libpcre3-dev libsasl2-dev libxml2-dev libxslt1-dev libyaml-dev mongodb-org numactl p7zip-full python-dev python-pip ssdeep upx zip libssl-dev
+    sudo apt-get install swig
+    sudo pip install m2crypto==0.24.0
     sudo ldconfig
 }
 
