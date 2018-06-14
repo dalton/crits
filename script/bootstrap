@@ -174,14 +174,15 @@ server_setup()
         # should get started by the installation process).
         start_mongo
       else
-        while true; do
-          read -p "Do you want to start 'mongod' now? [yn] " yn
-          case $yn in
-              [Yy]* ) start_mongo; break;;
-              [Nn]* ) break;;
-              * ) echo "Please answer yes or no.";;
-          esac
-        done
+       # while true; do
+       #   read -p "Do you want to start 'mongod' now? [yn] " yn
+       #   case $yn in
+       #       [Yy]* ) start_mongo; break;;
+       #       [Nn]* ) break;;
+       #       * ) echo "Please answer yes or no.";;
+       #   esac
+       # done
+       start_mongo;
       fi
     fi
 
@@ -211,13 +212,14 @@ server_setup()
             printf "[${INFO}S${END}]tart server\n"
             printf "[${INFO}Q${END}]uit\n"
             read -p "Add/Reset/Start/Quit? [arsq] " arc
-            case $arc in
-                [Aa]* ) add_admin;;
-                [Rr]* ) reset_pass;;
-                [Ss]* ) start_server;;
-                [Qq]* ) break;;
-                * ) echo "${FAIL}Please answer [A]dd / [R]eset / [S]tart / [Q]uit.${END}\n";;
-            esac
+            #case $arc in
+            ##    [Aa]* ) add_admin;;
+            #    [Rr]* ) reset_pass;;
+            #    [Ss]* ) start_server;;
+            #    [Qq]* ) break;;
+            #    * ) echo "${FAIL}Please answer [A]dd / [R]eset / [S]tart / [Q]uit.${END}\n";;
+            #esac
+            break;;
         done
     fi
 }
