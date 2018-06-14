@@ -219,7 +219,6 @@ server_setup()
             #    [Qq]* ) break;;
             #    * ) echo "${FAIL}Please answer [A]dd / [R]eset / [S]tart / [Q]uit.${END}\n";;
             #esac
-            break;;
         done
     fi
 }
