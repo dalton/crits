@@ -263,8 +263,17 @@ exit_restart()
 ubuntu_install()
 {
     printf "${INFO}Installing dependencies with apt-get${END}\n"
-    sudo -E apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-    echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+    #Step 1:  Import the MongoDB public key https://stackoverflow.com/questions/28945921/e-unable-to-locate-package-mongodb-org
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+
+    #Step 2: Generate a file with the MongoDB repository url
+    echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb.list
+
+    #Step 3: Refresh the local database with the packages
+    sudo apt-get update
+
+    #Step 4: Install the last stable MongoDB version and all the necessary packages on our system
+    sudo apt-get install mongodb-org
     sudo -E add-apt-repository universe
     sudo -E apt-get update
     sudo -E apt-get install -y --fix-missing build-essential curl git libevent-dev libz-dev libjpeg-dev libfuzzy-dev libldap2-dev libpcap-dev libpcre3-dev libsasl2-dev libxml2-dev libxslt1-dev libyaml-dev mongodb-org numactl p7zip-full python-dev python-pip ssdeep upx zip libssl-dev

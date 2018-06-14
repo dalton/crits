@@ -1,8 +1,10 @@
 FROM ubuntu:latest
 
 MAINTAINER crits
+ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get -qq update
+RUN apt-get -qq update && apt-get install -y --no-install-recommends apt-utils
+
 # git command
 RUN apt-get install -y git
 # pip command
@@ -15,7 +17,7 @@ RUN apt-get install -y sudo
 RUN apt-get install -y software-properties-common
 
 # Clone the repo
-RUN git clone --depth 1 https://github.com/crits/crits.git 
+RUN git clone --depth 1 https://github.com/dalton/crits.git
 
 WORKDIR crits
 # Install the dependencies
